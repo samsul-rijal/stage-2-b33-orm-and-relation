@@ -96,4 +96,23 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
     // code here
+    try {
+        const { id } = req.params
+
+        await user.destroy({
+            where: {id}
+        })
+
+        res.send({
+            status: 'success',
+            message: `Delete user id: ${id} success`,
+        })
+        
+    } catch (error) {
+        console.log(error)
+        res.send({
+            status: 'failed',
+            message: 'Server Error'
+        })
+    }
 }
