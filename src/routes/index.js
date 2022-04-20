@@ -1,12 +1,11 @@
 const express = require('express')
-
 const router = express.Router()
 
-// Controller
-// import controller here
 
-// Route
-// add route here
+const {addUsers} = require('../controllers/user')
+
+
+router.post('/user', addUsers)
 
 
 module.exports = router
