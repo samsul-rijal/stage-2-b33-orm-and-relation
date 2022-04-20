@@ -12,5 +12,9 @@ exports.addUsers = async(req,res) => {
         
     } catch (error) {
         console.log(error);
+        res.send({
+            status: 'failed',
+            message: 'Server Error'
+        })
     }
 }
