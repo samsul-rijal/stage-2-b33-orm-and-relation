@@ -5,14 +5,14 @@ exports.addUsers = async(req,res) => {
     try {
         await user.create(req.body)
 
-        res.send({
+        res.status(201).send({
             status: 'success',
             message: 'Add user success'
         })
         
     } catch (error) {
         console.log(error);
-        res.send({
+        res.status(401).send({
             status: 'failed',
             message: 'Server Error'
         })
