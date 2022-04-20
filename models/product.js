@@ -24,6 +24,15 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       // code here
+      product.belongsToMany(models.category, {
+        as: "categories",
+        // through is required in this association
+        through: {
+          model: "productCategory", // this is "bridge" table
+          as: "bridge",
+        },
+        foreignKey: "idProduct",
+      });
     }
   }
   product.init(
